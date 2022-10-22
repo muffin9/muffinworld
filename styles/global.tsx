@@ -1,5 +1,7 @@
 import { Global, css } from '@emotion/react';
 
+import { flexbox } from './mixin';
+
 const style = css`
   * {
     box-sizing: border-box;
@@ -8,9 +10,13 @@ const style = css`
     font-size: 1rem;
   }
   body {
+    height: 100vw;
+    height: 100vh;
+    ${flexbox({ jc: 'center', ai: 'center' })}
     font-family: 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
-    background-color: #f7f7fc;
+    background: url('/background.png');
+    background-size: cover;
     overflow-x: hidden;
   }
   a {

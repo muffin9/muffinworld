@@ -6,7 +6,7 @@ import { GET_BOARDS } from '@/queries/board';
 const Boards = () => {
   const { loading, error, data } = useQuery(GET_BOARDS, {
     variables: {
-      page: 2,
+      page: 1,
     },
   });
 
