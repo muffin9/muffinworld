@@ -12,6 +12,7 @@ const colors = {
   lightSliver: '#D9D9D9',
   orange: '#ff6400',
   black: '#000',
+  white: '#FFF',
 };
 
 const fontSize = {
