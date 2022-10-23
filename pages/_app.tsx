@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 
 import '@/styles/reset.css';
 
+import Layout from '@/components/Layout';
 import client from '@/lib/apolloClient';
 import GlobalStyle from '@/styles/global';
 import theme from '@/styles/theme';
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </ApolloProvider>
   );
