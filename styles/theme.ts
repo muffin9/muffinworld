@@ -1,5 +1,3 @@
-import { Theme } from '@emotion/react';
-
 const calcRem = (size: number): string => `${size / 16}rem`;
 
 const colors = {
@@ -12,9 +10,12 @@ const colors = {
   lightGray: '#D7DEE2',
   sliver: '#DDDDDD',
   lightSliver: '#D9D9D9',
+  orange: '#ff6400',
+  black: '#000',
 };
 
 const fontSize = {
+  xss: calcRem(9),
   xs: calcRem(12),
   sm: calcRem(16),
   md: calcRem(18),
@@ -22,7 +23,7 @@ const fontSize = {
   display: calcRem(32),
 };
 
-const theme: Theme = {
+const theme = {
   colors,
   fontSize,
 };
