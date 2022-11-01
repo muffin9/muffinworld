@@ -1,10 +1,8 @@
-import Link from 'next/link';
 import React from 'react';
 
-import * as S from './Content.style';
+import Tabs from '../Tabs';
 
-import Text from '@/components/common/Text';
-import theme from '@/styles/theme';
+import * as S from './Content.style';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,23 +11,7 @@ interface LayoutProps {
 const ContentLayout = ({ children }: LayoutProps) => (
   <S.ContentLayout>
     {children}
-    <S.TabContainer>
-      <Link href="/">
-        <S.Tab>
-          <Text text="홈" size="small" color={theme.colors.white} />
-        </S.Tab>
-      </Link>
-      <Link href="game">
-        <S.Tab>
-          <Text text="게임" size="small" color={theme.colors.white} />
-        </S.Tab>
-      </Link>
-      <Link href="diary">
-        <S.Tab>
-          <Text text="다이어리" size="small" color={theme.colors.white} />
-        </S.Tab>
-      </Link>
-    </S.TabContainer>
+    <Tabs />
   </S.ContentLayout>
 );
 
