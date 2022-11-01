@@ -32,4 +32,5 @@ export const HeaderWrapper = styled.header`
   ${flexbox({})}
   padding: 0 1rem;
   margin-top: 1.625rem;
+  margin-bottom: 3px;
 `;

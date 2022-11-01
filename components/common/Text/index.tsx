@@ -10,7 +10,6 @@ interface IText {
     | 'xRegular'
     | 'regular'
     | 'small'
-    | 'smallLight'
     | 'xSmall';
   color: string;
 }
