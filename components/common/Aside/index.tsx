@@ -1,5 +1,8 @@
+import { css } from '@emotion/react';
+
 import * as S from './Aside.style';
 
+import Divider from '@/components/common/Divider';
 import Image from '@/components/common/Image';
 import Text from '@/components/common/Text';
 import theme from '@/styles/theme';
@@ -7,7 +10,13 @@ import theme from '@/styles/theme';
 const Aside = () => (
   <S.AsideWrapper>
     <S.ProfileImage />
-    <S.HorizontalDivider />
+    <Divider
+      width={9.25}
+      color={theme.colors.lightGray}
+      css={css`
+        margin: 0.875rem 0;
+      `}
+    />
     <S.ProfileContent>
       <S.RowBox>
         <Image url="/name.png" alt="이름" />

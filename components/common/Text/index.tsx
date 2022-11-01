@@ -1,5 +1,7 @@
 import * as S from './Text.style';
 
+import theme from '@/styles/theme';
+
 interface IText {
   text: string;
   size:
@@ -11,10 +13,15 @@ interface IText {
     | 'regular'
     | 'small'
     | 'xSmall';
-  color: string;
+  color?: string;
 }
 
-const Text = ({ text, size = 'regular', color, ...props }: IText) => (
+const Text = ({
+  text,
+  size = 'regular',
+  color = theme.colors.black,
+  ...props
+}: IText) => (
   <S.Text size={size} color={color} {...props}>
     {text}
   </S.Text>
