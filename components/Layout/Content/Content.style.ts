@@ -23,7 +23,7 @@ export const TabContainer = styled.nav`
 export const ContentLayout = styled.section`
   width: 32.25rem;
   height: 27.1875rem;
-  padding: 2rem;
+  padding: 1rem 1.5rem;
   margin-left: 3px;
   border-radius: 10px;
   position: relative;
