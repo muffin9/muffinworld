@@ -2,6 +2,7 @@ const calcRem = (size: number): string => `${size / 16}rem`;
 
 const colors = {
   blue: '#55B2D4',
+  darkBlue: '#0F465E',
   yellow: '#FFC900',
   pink: '#EE3E61',
   red: '#FF0000',
