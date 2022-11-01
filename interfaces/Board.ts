@@ -1,4 +1,4 @@
-export interface BoardReturn {
+export interface BoardValues {
   number: number;
   writer: string;
   title: string;
