@@ -7,7 +7,7 @@ import theme from '@/styles/theme';
 const Aside = () => (
   <S.AsideWrapper>
     <S.ProfileImage />
-    <S.Horizontal />
+    <S.HorizontalDivider />
     <S.ProfileContent>
       <S.RowBox>
         <Image url="/name.png" alt="이름" />
@@ -33,9 +33,9 @@ const Aside = () => (
     <S.Feelings>
       <S.FeelingsLabel htmlFor="feelings">오늘의 기분</S.FeelingsLabel>
       <S.FeelingSelectBox name="기쁨" id="feelings">
-        <S.FeelingOption value="happy">기쁨</S.FeelingOption>
-        <S.FeelingOption value="depressed">우울</S.FeelingOption>
-        <S.FeelingOption value="sleep">졸림</S.FeelingOption>
+        <S.FeelingOption value="happy">기쁨 😻</S.FeelingOption>
+        <S.FeelingOption value="depressed">우울 😿</S.FeelingOption>
+        <S.FeelingOption value="sleep">졸림 😴</S.FeelingOption>
       </S.FeelingSelectBox>
     </S.Feelings>
   </S.AsideWrapper>
