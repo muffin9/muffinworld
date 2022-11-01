@@ -15,16 +15,17 @@
     "jsx": "preserve",
     "incremental": true,
     "jsxImportSource": "@emotion/react",
+    "types": ["@emotion/react/types/css-prop"],
     "baseUrl": ".",
-      	"paths": {
-          "@/components/*":["components/*"],
-          "@/config/*":["config/*"],
-          "@/pages/*":["pages/*"],
-          "@/styles/*":["styles/*"],
-          "@/lib/*":["lib/*"],
-          "@/queries/*":["queries/*"],
-          "@/interfaces/*":["interfaces/*"],
-        }
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/config/*": ["config/*"],
+      "@/pages/*": ["pages/*"],
+      "@/styles/*": ["styles/*"],
+      "@/lib/*": ["lib/*"],
+      "@/queries/*": ["queries/*"],
+      "@/interfaces/*": ["interfaces/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
