@@ -33,6 +33,7 @@ export const FeelingSelectBox = styled.select`
   width: 100%;
   margin-top: 0.5rem;
   padding: 0.2rem;
+  cursor: pointer;
   background-color: ${theme.colors.lightGray};
   color: ${theme.colors.black};
 `;
