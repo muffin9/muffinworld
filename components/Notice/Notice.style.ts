@@ -12,6 +12,7 @@ export const Tag = styled.div`
 
 export const RowBox = styled.div`
   width: 15.875rem;
+  cursor: pointer;
   ${flexbox({ ai: 'center' })}
   gap: 0.5rem;
 `;

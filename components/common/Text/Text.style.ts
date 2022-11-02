@@ -54,6 +54,4 @@ export const Text = styled.div<{
 }>`
   ${({ size }) => selectSize(size)};
   color: ${props => props.color};
-  white-space: nowrap;
-  text-overflow: ellipsis;
 `;
