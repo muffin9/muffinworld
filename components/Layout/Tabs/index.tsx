@@ -32,7 +32,7 @@ const Tabs = () => {
           />
         </S.Tab>
       </Link>
-      <Link href="game">
+      <Link href="/game">
         <S.Tab
           type={type === 'game' ? 1 : 0}
           onClick={() => handleClickType('game')}
@@ -48,7 +48,7 @@ const Tabs = () => {
           />
         </S.Tab>
       </Link>
-      <Link href="diary">
+      <Link href="/diary">
         <S.Tab
           type={type === 'diary' ? 1 : 0}
           onClick={() => handleClickType('diary')}
