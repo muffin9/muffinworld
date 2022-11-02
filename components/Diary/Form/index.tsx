@@ -6,28 +6,54 @@ import React, { useState } from 'react';
 
 import * as S from './Form.style';
 
-import { POST_BOARD } from '@/queries/board';
+import { POST_BOARD, UPDATE_BOARD } from '@/queries/board';
 import { flexbox } from '@/styles/mixin';
+import { currentPath } from '@/utils/router';
 import { FormDataType } from 'type/Board';
 
 const Form = () => {
   const router = useRouter();
+  const {
+    pathname,
+    query: { id, title, contents },
+  } = router;
+
+  let diaryId = 0;
+  if (typeof id === 'string') {
+    diaryId = +id;
+  }
+
   const [formData, setFormData] = useState<FormDataType>({
-    title: '',
-    contents: '',
+    title: (title as string) || '',
+    contents: (contents as string) || '',
   });
 
-  const [postBoard, { data, loading, error }] = useMutation(POST_BOARD, {
+  // TODO create, update를 하나로 묶을 수 있는 hooks를 만들 필요가 있어보인다.
+  const [postBoard, { data, loading: createLoading, error: createError }] =
+    useMutation(POST_BOARD, {
+      variables: {
+        writer: 'muffin',
+        title: formData.title,
+        contents: formData.contents,
+      },
+    });
+
+  const [
+    updateBoard,
+    { data: updateData, loading: updateLoading, error: updateError },
+  ] = useMutation(UPDATE_BOARD, {
     variables: {
+      number: diaryId,
       writer: 'muffin',
       title: formData.title,
       contents: formData.contents,
     },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) <p>Error :(</p>;
-  if (data) {
+  if (createLoading || updateLoading) return <p>Loading...</p>;
+  if (createError || updateError) return <p>Error :(</p>;
+
+  if (data || updateData) {
     router.push('/diary');
   }
 
@@ -41,7 +67,8 @@ const Form = () => {
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    postBoard();
+    if (currentPath(pathname) === 'new') postBoard();
+    else if (currentPath(pathname) === 'edit') updateBoard();
   };
 
   return (
@@ -52,9 +79,15 @@ const Form = () => {
           type="text"
           placeholder="제목을 입력해주세요"
           onChange={handleChangeTitle}
+          value={formData.title}
           required
         />
-        <S.Textarea id="contents" onChange={handleChangeContent} required />
+        <S.Textarea
+          id="contents"
+          onChange={handleChangeContent}
+          value={formData.contents}
+          required
+        />
       </S.FormWrapper>
 
       <div
@@ -64,7 +97,7 @@ const Form = () => {
         `}
       >
         <S.Button type="submit" onClick={handleSubmit}>
-          등록하기
+          {currentPath(pathname) === 'new' ? '등록하기' : '수정하기'}
         </S.Button>
         <Link href="/diary">
           <S.Button>취소하기</S.Button>
