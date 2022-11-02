@@ -21,7 +21,7 @@ export const GET_BOARD = gql`
   }
 `;
 
-export const POST_BOARD = gql`
+export const CREATE_BOARD = gql`
   mutation CreateBoard($writer: String, $title: String, $contents: String) {
     createBoard(writer: $writer, title: $title, contents: $contents) {
       number

@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 
 import * as S from './Form.style';
 
-import { POST_BOARD, UPDATE_BOARD } from '@/queries/board';
+import { CREATE_BOARD, GET_BOARDS, UPDATE_BOARD } from '@/queries/board';
 import { flexbox } from '@/styles/mixin';
 import { currentPath } from '@/utils/router';
 import { FormDataType } from 'type/Board';
@@ -30,12 +30,13 @@ const Form = () => {
 
   // TODO create, update를 하나로 묶을 수 있는 hooks를 만들 필요가 있어보인다.
   const [postBoard, { data, loading: createLoading, error: createError }] =
-    useMutation(POST_BOARD, {
+    useMutation(CREATE_BOARD, {
       variables: {
         writer: 'muffin',
         title: formData.title,
         contents: formData.contents,
       },
+      refetchQueries: [{ query: GET_BOARDS, variables: { page: 1 } }],
     });
 
   const [
@@ -48,6 +49,7 @@ const Form = () => {
       title: formData.title,
       contents: formData.contents,
     },
+    refetchQueries: [{ query: GET_BOARDS, variables: { page: 1 } }],
   });
 
   if (createLoading || updateLoading) return <p>Loading...</p>;
