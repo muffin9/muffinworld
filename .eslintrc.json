@@ -1,0 +1,67 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-props-no-spreading": "off", // 넘겨받은 props를 spread 허용
+    "react/jsx-filename-extension": ["warn", { "extensions": ["tsx", "jsx"] }], // jsx파일 내에서 jsx, tsx 문법 허용
+    "react/require-default-props": "off", // type 지정시 optional 연산자를 사용했을때 막기 위한 속성
+    "react/prop-types": "off", // props의 타입체크를 처리에 proptypes가 아닌 typescript 사용
+    "import/prefer-default-export": "off", // export default 가 아닌 default 없이 export 할 수 있도록
+    "react/react-in-jsx-scope": "off", //  // 최상단에 import React'를 생략
+    "no-nested-ternary": "off", // // 삼항연산자 2개이상 허용
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "react/function-component-definition": [
+      // 함수형 컴포넌트 선언방식
+      2,
+      {
+        "namedComponents": ["function-declaration", "arrow-function"]
+      }
+    ],
+    "import/order": [
+      // import문 입력된 순서가 맞는지 검사
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "import/extensions": [
+      // 임포트시 확장자 적어주지 않기 위해
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  }
+}
