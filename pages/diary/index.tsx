@@ -1,5 +1,8 @@
 import Head from 'next/head';
 
+import Diary from '@/components/Diary/Diary';
+import Header from '@/components/Diary/Header';
+
 const DiaryPage = () => {
   return (
     <>
@@ -7,7 +10,8 @@ const DiaryPage = () => {
         <title>Diary Page</title>
         <meta name="description" content="Diary Page" />
       </Head>
-      <h1>Diary</h1>
+      <Header />
+      <Diary />
     </>
   );
 };

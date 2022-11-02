@@ -10,7 +10,7 @@ const colors = {
   gray: '#999999',
   lightGray: '#D7DEE2',
   sliver: '#DDDDDD',
-  lightSliver: '#D9D9D9',
+  lightSilver: '#D9D9D9',
   orange: '#ff6400',
   black: '#000',
   white: '#FFF',

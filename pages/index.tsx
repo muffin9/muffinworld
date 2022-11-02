@@ -5,6 +5,7 @@ import Music from '@/components/Music';
 import Notice from '@/components/Notice';
 
 const Home: NextPage = () => {
+  // 데이터 받아오기
   return (
     <>
       <Head>
