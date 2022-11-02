@@ -5,3 +5,5 @@ export type GetBoardType = Pick<
   BoardValues,
   'title' | 'contents' | 'createdAt'
 >;
+
+export type FormDataType = Pick<BoardValues, 'title' | 'contents'>;

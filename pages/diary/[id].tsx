@@ -35,7 +35,7 @@ function DiaryDetailPage() {
         <title>Diary Detail Page</title>
         <meta name="description" content="Diary Detail Page" />
       </Head>
-      <Header diaryId={diaryId} />
+      <Header />
       <Content board={board.fetchBoard} />
     </>
   );
