@@ -1,9 +1,9 @@
-import { useQuery } from '@apollo/client';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import Content from '@/components/Diary/Content';
 import Header from '@/components/Diary/Header';
+import { useRequestQuery } from '@/hooks/useRequestQuery';
 import { GET_BOARD } from '@/queries/board';
 
 function DiaryDetailPage() {
@@ -15,19 +15,9 @@ function DiaryDetailPage() {
     diaryId = +id;
   }
 
-  const {
-    loading,
-    error,
-    data: board,
-  } = useQuery(GET_BOARD, {
+  const board = useRequestQuery(GET_BOARD, {
     variables: { number: diaryId },
   });
-
-  if (loading) return <p>Loading...</p>;
-
-  if (error) {
-    return <p>Error :(</p>;
-  }
 
   return (
     <>
@@ -36,7 +26,7 @@ function DiaryDetailPage() {
         <meta name="description" content="Diary Detail Page" />
       </Head>
       <Header />
-      <Content board={board.fetchBoard} />
+      {board.fetchBoard && <Content board={board.fetchBoard} />}
     </>
   );
 }
