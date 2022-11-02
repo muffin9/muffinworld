@@ -1,4 +1,3 @@
-import { useQuery } from '@apollo/client';
 import { css } from '@emotion/react';
 import Link from 'next/link';
 
@@ -7,25 +6,16 @@ import NoticeInfo from './NoticeInfo';
 
 import Divider from '@/components/common/Divider';
 import Text from '@/components/common/Text';
+import { useRequestQuery } from '@/hooks/useRequestQuery';
 import { BoardValues } from '@/interfaces/Board';
 import { GET_BOARDS } from '@/queries/board';
 import { flexbox } from '@/styles/mixin';
 import theme from '@/styles/theme';
 
 const Notice = () => {
-  const {
-    loading,
-    error,
-    data: boards,
-  } = useQuery(GET_BOARDS, {
+  const boards = useRequestQuery(GET_BOARDS, {
     variables: { page: 1 },
   });
-
-  if (loading) return <p>Loading...</p>;
-
-  if (error) {
-    return <p>Error :(</p>;
-  }
 
   return (
     <S.NoticeContainer>
@@ -52,22 +42,23 @@ const Notice = () => {
               margin-top: 0.5rem;
             `}
           >
-            {boards.fetchBoards.slice(0, 4).map((board: BoardValues) => {
-              return (
-                <Link href={`/diary/${board.number}`} key={board.number}>
-                  <S.RowBox>
-                    <S.Tag>
-                      <Text
-                        text="다이어리"
-                        size="xSmall"
-                        color={theme.colors.white}
-                      />
-                    </S.Tag>
-                    <Text text={board.title} size="xSmall" />
-                  </S.RowBox>
-                </Link>
-              );
-            })}
+            {boards.fetchBoards &&
+              boards.fetchBoards.slice(0, 4).map((board: BoardValues) => {
+                return (
+                  <Link href={`/diary/${board.number}`} key={board.number}>
+                    <S.RowBox>
+                      <S.Tag>
+                        <Text
+                          text="다이어리"
+                          size="xSmall"
+                          color={theme.colors.white}
+                        />
+                      </S.Tag>
+                      <Text text={board.title} size="xSmall" />
+                    </S.RowBox>
+                  </Link>
+                );
+              })}
           </div>
         </div>
         <NoticeInfo />
