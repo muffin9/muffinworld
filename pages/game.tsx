@@ -1,4 +1,10 @@
+import { css } from '@emotion/react';
 import Head from 'next/head';
+
+import EndToEnd from '@/components/Game/EndToEnd';
+import Lotto from '@/components/Game/Lotto';
+import Header from '@/components/Header';
+import { flexbox } from '@/styles/mixin';
 
 const GamePage = () => {
   return (
@@ -7,7 +13,16 @@ const GamePage = () => {
         <title>Game Page</title>
         <meta name="description" content="Game Page" />
       </Head>
-      <h1>Game</h1>
+      <Header />
+      <div
+        css={css`
+          ${flexbox({ dir: 'column', ai: 'center' })};
+          gap: 1.5rem;
+        `}
+      >
+        <EndToEnd />
+        <Lotto />
+      </div>
     </>
   );
 };
