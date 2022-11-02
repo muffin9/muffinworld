@@ -8,8 +8,8 @@ import Text from '@/components/common/Text';
 import { GET_BOARDS } from '@/queries/board';
 import { flexbox } from '@/styles/mixin';
 import theme from '@/styles/theme';
+import { calculateDateYMD } from '@/utils/date';
 import { GetBoardsType } from 'type/Board';
-import { calculateDateYMD } from 'utils/date';
 
 const Diary = () => {
   const {

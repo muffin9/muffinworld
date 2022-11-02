@@ -1,15 +1,35 @@
+import { useMutation } from '@apollo/client';
 import { css } from '@emotion/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import * as S from './Content.style';
 
 import Text from '@/components/common/Text';
+import { DELETE_BOARD } from '@/queries/board';
 import { flexbox } from '@/styles/mixin';
 import theme from '@/styles/theme';
+import { calculateDateYMD } from '@/utils/date';
 import { GetBoardType } from 'type/Board';
-import { calculateDateYMD } from 'utils/date';
 
 const Content = ({ board }: { board: GetBoardType }) => {
+  const router = useRouter();
+  const [deleteBoard, { data, loading, error }] = useMutation(DELETE_BOARD, {
+    variables: {
+      number: board.number,
+    },
+  });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  if (data) {
+    router.push('/diary');
+  }
+
+  const handleDelete = () => {
+    deleteBoard();
+  };
+
   return (
     <>
       <S.ContentContainer>
@@ -42,8 +62,15 @@ const Content = ({ board }: { board: GetBoardType }) => {
           gap: 2rem;
         `}
       >
-        <S.Button>수정하기</S.Button>
-        <S.Button>삭제하기</S.Button>
+        <Link
+          href={{
+            pathname: `/diary/${board.number}/edit`,
+            query: { title: board.title, contents: board.contents },
+          }}
+        >
+          <S.Button>수정하기</S.Button>
+        </Link>
+        <S.Button onClick={handleDelete}>삭제하기</S.Button>
       </div>
       <Link href="/diary">
         <Text
