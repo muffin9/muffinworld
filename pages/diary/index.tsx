@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import Diary from '@/components/Diary/Diary';
-import Header from '@/components/Diary/Header';
+import Header from '@/components/Header';
 
 const DiaryPage = () => {
   return (

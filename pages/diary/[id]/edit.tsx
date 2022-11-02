@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import Form from '@/components/Diary/Form';
-import Header from '@/components/Diary/Header';
+import Header from '@/components/Header';
 
 const DiaryDetailEditPage = () => {
   return (
