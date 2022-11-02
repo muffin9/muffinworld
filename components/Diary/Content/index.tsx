@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import * as S from './Content.style';
 
 import Text from '@/components/common/Text';
-import { DELETE_BOARD } from '@/queries/board';
+import { GET_BOARDS, DELETE_BOARD } from '@/queries/board';
 import { flexbox } from '@/styles/mixin';
 import theme from '@/styles/theme';
 import { calculateDateYMD } from '@/utils/date';
@@ -18,6 +18,7 @@ const Content = ({ board }: { board: GetBoardType }) => {
     variables: {
       number: board.number,
     },
+    refetchQueries: [{ query: GET_BOARDS, variables: { page: 1 } }],
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
