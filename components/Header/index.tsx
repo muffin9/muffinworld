@@ -12,7 +12,10 @@ import { currentPath } from '@/utils/router';
 
 const Header = () => {
   const router = useRouter();
-  const { pathname } = router;
+  const {
+    pathname,
+    query: { id },
+  } = router;
 
   const titleObj = {
     new: <Text text="| 글 등록" size="small" color={theme.colors.blue} />,
@@ -30,7 +33,7 @@ const Header = () => {
         `}
       >
         <Text
-          text={capitalize(currentPath(pathname))}
+          text={id ? 'Diary' : capitalize(currentPath(pathname))}
           size="xRegularFill"
           color={theme.colors.blue}
         />

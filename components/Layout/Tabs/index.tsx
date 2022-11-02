@@ -1,31 +1,30 @@
 import { css } from '@emotion/react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import * as S from './Tabs.style';
 
 import Text from '@/components/common/Text';
 import theme from '@/styles/theme';
+import { currentPath } from '@/utils/router';
 
 const Tabs = () => {
-  const [type, setType] = useState('home');
+  const router = useRouter();
 
-  const handleClickType = (tab: string) => {
-    setType(tab);
-  };
+  const {
+    pathname,
+    query: { id },
+  } = router;
 
   return (
     <S.TabContainer>
       <Link href="/">
-        <S.Tab
-          type={type === 'home' ? 1 : 0}
-          onClick={() => handleClickType('home')}
-        >
+        <S.Tab type={currentPath(pathname) === '' ? 1 : 0}>
           <Text
             text="홈"
             size="small"
             css={css`
-              color: ${type === 'home'
+              color: ${currentPath(pathname) === ''
                 ? theme.colors.black
                 : theme.colors.white};
             `}
@@ -33,15 +32,12 @@ const Tabs = () => {
         </S.Tab>
       </Link>
       <Link href="/game">
-        <S.Tab
-          type={type === 'game' ? 1 : 0}
-          onClick={() => handleClickType('game')}
-        >
+        <S.Tab type={currentPath(pathname) === 'game' ? 1 : 0}>
           <Text
             text="게임"
             size="small"
             css={css`
-              color: ${type === 'game'
+              color: ${currentPath(pathname) === 'game'
                 ? theme.colors.black
                 : theme.colors.white};
             `}
@@ -49,15 +45,12 @@ const Tabs = () => {
         </S.Tab>
       </Link>
       <Link href="/diary">
-        <S.Tab
-          type={type === 'diary' ? 1 : 0}
-          onClick={() => handleClickType('diary')}
-        >
+        <S.Tab type={currentPath(pathname) === 'diary' || id ? 1 : 0}>
           <Text
             text="다이어리"
             size="small"
             css={css`
-              color: ${type === 'diary'
+              color: ${currentPath(pathname) === 'diary' || id
                 ? theme.colors.black
                 : theme.colors.white};
             `}
