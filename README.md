@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Next.js로 추억의 싸이월드 구현
 
-## Getting Started
+🏠 챌린지 내용
 
-First, run the development server:
+### **`주제`**
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Next.js로 추억의 싸이월드 구현하기
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **`세부 미션`**
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+**싸이월드 페이지를 클론 코딩, 가이드라인은 참가자들에게 별도로 제공 ([Figma Link](https://www.figma.com/file/Tn34cPQR6hGtDxnKIf66Cv/%EB%84%98%EB%B8%94-%EC%8B%B8%EC%9D%B4%EC%9B%94%EB%93%9C?node-id=0%3A1))**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+[완성본](https://codecampnumble.shop/diary/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### `상세 일정`
 
-## Learn More
+10월 17일(월) ~ **11월 4일(목) 최종 결과물 제출 : 11월 3일 (목) 자정까지**
 
-To learn more about Next.js, take a look at the following resources:
+### `가이드라인`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 디자인은 피그마와 최대한 동일하게 진행
+2. 배경이미지는 레이아웃 컴포넌트를 이용해 재사용성을 높이기
+3. 다이어리 파트에서 사용하실 API 이름은 다음과 같다.
+   1. C : createBoard
+   2. R : fetchBoard(게시글 하나) / fetchBoards(리스트)
+   3. U : updateBoard
+   4. D : deleteBoard
+4. 다이어리 파트에서 게시글 하나를 클릭했을 시 다이나믹 라우팅을 이용하여 해당 게시글 상세페이지로 이동
+5. 게임 파트에서는 state를 적절히 활용해 끝말잇기 게임을 구현
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Next.js Framework를 사용, TypeScript 사용, 백엔드 통신은 GraphQL 을 사용 (도메인으로 접속하여 바로 데이터 통신이 가능한 백엔드 API 링크는 참여자들에게 별도로 제공하므로 실제 백엔드 개발은 생략)**
 
-## Deploy on Vercel
+### 작업 관련 정리
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+배포 URL : https://fe--muffin-world.netlify.app/  
+노션 : https://plant-amphibian-108.notion.site/Next-js-a4bb3fa3eb8c4b99be4018cc31d2b0bd
