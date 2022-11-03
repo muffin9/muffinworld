@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import Content from '@/components/Diary/Content';
+import Content from '@/components/Diary/DiaryDetail';
 import Header from '@/components/Header';
 import { useRequestQuery } from '@/hooks/useRequestQuery';
 import { GET_BOARD } from '@/queries/board';

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import Link from 'next/link';
 
-import * as S from './Diary.style';
+import * as S from './DiaryList.style';
 
 import Text from '@/components/common/Text';
 import { useRequestQuery } from '@/hooks/useRequestQuery';
@@ -11,7 +11,7 @@ import theme from '@/styles/theme';
 import { calculateDateYMD } from '@/utils/date';
 import { GetBoardsType } from 'type/Board';
 
-const Diary = () => {
+const DiaryList = () => {
   const boards = useRequestQuery(GET_BOARDS, {
     variables: { page: 1 },
   });
@@ -64,4 +64,4 @@ const Diary = () => {
   );
 };
 
-export default Diary;
+export default DiaryList;

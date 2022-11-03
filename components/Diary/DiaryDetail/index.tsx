@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import * as S from './Content.style';
+import * as S from './DiaryDetail.style';
 
 import Text from '@/components/common/Text';
 import { GET_BOARDS, DELETE_BOARD } from '@/queries/board';
@@ -12,7 +12,7 @@ import theme from '@/styles/theme';
 import { calculateDateYMD } from '@/utils/date';
 import { GetBoardType } from 'type/Board';
 
-const Content = ({ board }: { board: GetBoardType }) => {
+const DiaryDetail = ({ board }: { board: GetBoardType }) => {
   const router = useRouter();
   const [deleteBoard, { data, loading, error }] = useMutation(DELETE_BOARD, {
     variables: {
@@ -89,4 +89,4 @@ const Content = ({ board }: { board: GetBoardType }) => {
   );
 };
 
-export default Content;
+export default DiaryDetail;

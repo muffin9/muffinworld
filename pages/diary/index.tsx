@@ -1,7 +1,13 @@
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
-import Diary from '@/components/Diary/Diary';
+import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Header from '@/components/Header';
+
+const DiaryList = dynamic(() => import('@/components/Diary/DiaryList'), {
+  loading: () => <LoadingSpinner size="xLarge" />,
+  ssr: false,
+});
 
 const DiaryPage = () => {
   return (
@@ -11,7 +17,7 @@ const DiaryPage = () => {
         <meta name="description" content="Diary Page" />
       </Head>
       <Header />
-      <Diary />
+      <DiaryList />
     </>
   );
 };

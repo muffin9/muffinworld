@@ -1,11 +1,15 @@
-import type { NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
+import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Music from '@/components/Music';
-import Notice from '@/components/Notice';
 
-const Home: NextPage = () => {
-  // 데이터 받아오기
+const Notice = dynamic(() => import('@/components/Notice'), {
+  loading: () => <LoadingSpinner size="xLarge" />,
+  ssr: false,
+});
+
+const Home = () => {
   return (
     <>
       <Head>
