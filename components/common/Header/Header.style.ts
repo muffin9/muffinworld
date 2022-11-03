@@ -30,7 +30,7 @@ export const PrivacyWrapper = styled.div`
 
 export const HeaderWrapper = styled.header`
   ${flexbox({})}
-  padding: 0 1rem;
   margin-top: 1.625rem;
   margin-bottom: 3px;
+  padding-right: 1rem;
 `;

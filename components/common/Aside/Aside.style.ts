@@ -3,12 +3,6 @@ import styled from '@emotion/styled';
 import { flexbox } from '@/styles/mixin';
 import theme from '@/styles/theme';
 
-export const ProfileImage = styled.img`
-  width: 8.875rem;
-  height: 7.6875rem;
-  background: url('/CyworldProfile.jpeg');
-`;
-
 export const ProfileContent = styled.div``;
 
 export const HorizontalDivider = styled.div`
