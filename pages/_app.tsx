@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta
-          httpEquiv="Content-Secruity-Policy"
+          httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
       </Head>
