@@ -9,7 +9,7 @@ import theme from '@/styles/theme';
 
 const Aside = () => (
   <S.AsideWrapper>
-    <S.ProfileImage />
+    <Image url="/profile.png" alt="profile image" />
     <Divider
       width={9.25}
       color={theme.colors.lightGray}
